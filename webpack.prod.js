@@ -5,7 +5,6 @@ const OptimizeCssAssetPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-//const  = require('copy-webpack-plugin');
 
 //Archivo de configuracion para webpack
 module.exports = {
@@ -87,9 +86,12 @@ module.exports = {
         }),
         new CopyPlugin
         ({
-            patterns:[
+            /* patterns:[
                 {from:'src/assets', to:'assets/'}
-            ]
+            ] */
+            patterns: [
+                { from: 'src/assets/', to: 'assets/' },
+              ],
         }),
         new MinifyPlugin(),
         new CleanWebpackPlugin(),
